@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.24"
 }
 
-group = "com.valtech-mobility"
+group = "com.hertfelder"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -30,6 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.h2database:h2")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
