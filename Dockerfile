@@ -1,14 +1,14 @@
-# Use the official OpenJDK image as the base image
+# Use a base image with JDK
 FROM openjdk:17-jdk-slim
 
-# Set the working directory
-WORKDIR /app
+# Add a volume pointing to /tmp
+VOLUME /tmp
 
-# Copy the build output to the container
-COPY build/libs/LaptimerBackend-0.0.1-SNAPSHOT.jar app.jar
+# The application's jar file
+ARG JAR_FILE=build/libs/LaptimerBackend-0.0.1-SNAPSHOT.jar
 
-# Expose the application port
-EXPOSE 8080
+# Add the application's jar to the container
+COPY ${JAR_FILE} app.jar
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the jar file
+ENTRYPOINT ["java","-jar","/app.jar"]
